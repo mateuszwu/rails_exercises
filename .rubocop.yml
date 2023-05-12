@@ -1,0 +1,30 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 3.2.2
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+
+# https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/FrozenStringLiteralComment
+# We do not care
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# https://www.rubydoc.info/github/bbatsov/RuboCop/RuboCop/Cop/Metrics/LineLength
+# To fit Github review window
+# Migration names tend to be long
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'db/migrate/**/*'
+
+# https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/Documentation
+# We prefer everything to be self-explanatory
+Style/Documentation:
+  Enabled: false

@@ -14,7 +14,7 @@ class CreateSth < Patterns::Service
   attr_reader :event
 
   def some_string
-    event.some_strings.split(',').sample
+    ReturnSth.result_for(event.some_strings)
   end
 end
 
